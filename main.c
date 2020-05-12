@@ -10,7 +10,8 @@ int main(int argc, char *argv)
 {
 	if (argc != 2)
 	{
-		write(stderr, "USAGE: monty file");
+		write(STDERR_FILENO, "USAGE: monty file\n", 18);
+		return (EXIT_FAILURE);
 	}
 
 }

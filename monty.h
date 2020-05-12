@@ -1,5 +1,9 @@
 #ifndef HOLBERTON_MONTY_H
 #define HOLBERTON_MONTY_H
+/**  imports  **/
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 
 /**  Structs  **/
 /**
@@ -58,6 +62,12 @@ typedef struct instruction_s
 /*mul*/
 /*mul_lvlup*/
 
+int _strlen(char *s);
+char *str_concat(char *s1, char *s2);
 
+void validate_filename(char *filename);
+void validate_file(FILE *fptr);
 
+void split_line(char **args, char *line);
+void free_grid(char **grid, int height);
 #endif /**  HOLBERTON_MONTY_H   **/
