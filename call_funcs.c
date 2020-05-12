@@ -31,7 +31,8 @@ void call_functions(char *command, ...){
 	{
 		_strcmp(command, funcs[fcount].opcode);
 		if (_strcmp == 1)
-			funcs[fcount].f(**stack, line_number)
+			funcs[fcount].f(**stack, line_number);
+		fcount++;
 	}
 
 int _strcmp(char *s1, char *s2)
