@@ -10,7 +10,7 @@
 
 void call_functions(char *command, ...){
 
-	fcount = NULL;
+	int fcount = NULL;
 
 	va_list ap;
 	instruction_t funcs[] =
