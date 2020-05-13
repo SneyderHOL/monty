@@ -6,13 +6,14 @@
  *
  * Return: Always 0 (Success)
  */
-int main(int argc, char *argv)
+int main(int argc, char **argv)
 {
 	char *filename = NULL, *line = NULL, *args[] = {NULL, NULL, NULL};
 	FILE *fptr = NULL;
 	size_t lineSize = 0;
 	ssize_t line_read_char = 0;
 	int count = 0, i = 0;
+	stack_t stack = NULL;
 
 	if (argc != 2)
 	{
@@ -32,8 +33,6 @@ int main(int argc, char *argv)
 			printf("%s\n", args[i]);
 		}
 		line_read_char = getline(&line, &lineSize, fptr);
-		/*printf("%zu\n", line_read_char);
-		  printf("%s\n", line);*/
 	}
 	free(line);
 	fclose(fptr);
