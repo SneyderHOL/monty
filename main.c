@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 	for (count = 1; line_read_char != -1; count++)
 	{
 		split_line(args, line);
-		call_functions(&stack, args, count);
+		call_functions(&stack, args, count, fptr, line);
 		line_read_char = getline(&line, &lineSize, fptr);
 	}
 	free_stack_t(stack);

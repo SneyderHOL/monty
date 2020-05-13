@@ -8,33 +8,39 @@ int global_variable = 0;
  * Return: Nothing meanwhile.
  */
 
-void call_functions(stack_t **stack, char **array, unsigned int line_number)
+void call_functions(stack_t **stack, char **array, unsigned int line_number,
+                    FILE *ptr, char *line)
 {
         int fcount = NULL;
 
-	instruction_t funcs[] = {
-		    {"push", exec_push},
-		    {"pall", exec_pall},
-		    {"pint", exec_pint},
-		    {"pop", exec_pop},
-		    {"swap", exec_swap},
-		    {"add", exec_add},
-		    {"nop", NULL},
-		    {NULL, NULL}
-		};
+        instruction_t funcs[] = {
+		{"push", exec_push},
+		{"pall", exec_pall},
+		{"pint", exec_pint},
+		{"pop", exec_pop},
+		{"swap", exec_swap},
+		{"add", exec_add},
+		{"nop", NULL},
+		{NULL, NULL}
+	};
 
-	for (fcount = 0; funcs[fcount].opcode != NULL; fcount++)
-	{
-		if (_strcmp(array[0], funcs[fcount].opcode) == 1)
-		{
-			if (fcount == 0)
-				global_variable = atoi(array[1]);
-			funcs[fcount].f(stack, line_number);
-			break;
-		}
-	}
+        for (fcount = 0; funcs[fcount].opcode != NULL || fcount < 7; fcount++)
+        {
+                if (_strcmp(array[0], funcs[fcount].opcode) == 1)
+                {
+                        if (fcount == 0)
+                                global_variable = atoi(array[1]);
+                        funcs[fcount].f(stack, line_number);
+                        break;
+                }
+        }
+        if (fcount == 7)
+        {
+                fprintf(stderr, "L<%d>: unknown instruction <%s>\n",
+                        line_number, array[0]);
+                exit_instruction(stack, ptr, line);
+        }
 }
-
 /**
  * _strcmp - compares two strings
  * @s1: string one

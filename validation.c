@@ -62,3 +62,11 @@ void free_stack_t(stack_t *head)
 		free(cleaner);
 	}
 }
+
+void exit_instruction(stack_t **stack, FILE *fptr, char *line)
+{
+        free_stack_t(*stack);
+        free(line);
+        fclose(fptr);
+        exit(EXIT_FAILURE);
+}

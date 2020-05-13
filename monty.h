@@ -65,9 +65,12 @@ void exec_nop(stack_t **stack, unsigned int line_number);
 /*mul*/
 /*mul_lvlup*/
 
+void exit_instruction(stack_t **stack, FILE *ptr, char *line);
+
 void free_stack_t(stack_t *head);
 
-void call_functions(stack_t **stack, char **array, unsigned int line_number);
+void call_functions(stack_t **stack, char **array, unsigned int line_number,
+                    FILE *ptr, char *line);
 int _strlen(char *s);
 char *str_concat(char *s1, char *s2);
 int _strcmp(char *s1, char *s2);
