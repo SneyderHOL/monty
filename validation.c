@@ -61,7 +61,7 @@ int validate_number(char *str)
 	for (i = 0; str[i] != '\0'; i++)
 	{
 		c = str[i];
-		if ((c >64 && c < 91) || (c > 96 && c < 123))
+		if ((c > 64 && c < 91) || (c > 96 && c < 123))
 			return (-1);
 	}
 	return (0);
