@@ -79,7 +79,6 @@ void exec_pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *aux = NULL;
 	
-/*	(void) line_number;*/
 	if (stack == NULL || *stack == NULL)
 	{
 		error_pop(line_number);
@@ -101,6 +100,17 @@ void exec_pop(stack_t **stack, unsigned int line_number)
  */
 void exec_swap(stack_t **stack, unsigned int line_number)
 {
-	(void) stack;
-	(void) line_number;
+	stack_t *aux = NULL;
+	int tmp = 0;
+
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+	{
+		error_swap(line_number);
+		global_variable[1] = -1;
+		return;
+	}
+	aux = (*stack)->next;
+	tmp = (*stack)->n;
+	(*stack)->n = aux->n;
+	aux->n = tmp;
 }
