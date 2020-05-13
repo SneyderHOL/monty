@@ -28,6 +28,8 @@ int main(int argc, char **argv)
 	{
 		split_line(args, line);
 		call_functions(&stack, args, count, fptr, line);
+		if (global_variable[1] == -1)
+			break;
 		line_read_char = getline(&line, &lineSize, fptr);
 	}
 	free_stack_t(stack);

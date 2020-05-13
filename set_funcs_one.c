@@ -83,6 +83,7 @@ void exec_pop(stack_t **stack, unsigned int line_number)
 	if (stack == NULL || *stack == NULL)
 	{
 		error_pop(line_number);
+		global_variable[1] = -1;
 		return;
 	}
 	aux = *stack;
