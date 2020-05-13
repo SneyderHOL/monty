@@ -23,7 +23,7 @@ int main(int argc, char **argv)
 	filename = argv[1];
 	validate_filename(filename);
 	fptr = fopen(filename, "r");
-	validate_file(fptr);
+	validate_file(fptr, filename);
 	line_read_char = getline(&line, &lineSize, fptr);
 	for (count = 1; line_read_char != -1; count++)
 	{

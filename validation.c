@@ -6,12 +6,9 @@
  */
 void validate_filename(char *filename)
 {
-	char *mssg = NULL;
-
 	if (filename == NULL || *filename == '\0')
 	{
-		mssg = "Error: Can't open filename\n";
-		write(STDERR_FILENO, mssg, _strlen(mssg));
+		fprintf(stderr, "Error: Can't open file <%s>\n", filename);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -20,14 +17,11 @@ void validate_filename(char *filename)
  * @fptr: FILE pointer containing the file
  *
  */
-void validate_file(FILE *fptr)
+void validate_file(FILE *fptr, char *filename)
 {
-	char *mssg = NULL;
-
 	if (fptr == NULL)
 	{
-		mssg = "Error: Can't open file\n";
-		write(STDERR_FILENO, mssg, _strlen(mssg));
+		fprintf(stderr, "Error: Can't open file <%s>\n", filename);
 		exit(EXIT_FAILURE);
 	}
 }

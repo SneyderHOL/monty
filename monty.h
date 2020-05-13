@@ -72,7 +72,7 @@ int _strlen(char *s);
 char *str_concat(char *s1, char *s2);
 int _strcmp(char *s1, char *s2);
 void validate_filename(char *filename);
-void validate_file(FILE *fptr);
+void validate_file(FILE *fptr, char *filename);
 char *_itoa(unsigned int num, unsigned int base);
 void rev_string(char *s, int size);
 int num_len(unsigned int num, unsigned int base);
