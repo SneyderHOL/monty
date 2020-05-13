@@ -48,3 +48,77 @@ char *str_concat(char *s1, char *s2)
 	*(poin + a) = '\0';
 	return (poin);
 }
+/**
+ * _itoa - converts an integer to a string
+ * @num: integer argument
+ * @base: integer argument
+ *
+ * Return: the converted string
+ */
+char *_itoa(unsigned int num, unsigned int base)
+{
+	int pos = 0, length = 0;
+	unsigned int aux = 0;
+	char *str = NULL;
+
+	length = num_len(num, base);
+	str = malloc((length + 1) * sizeof(char));
+	if (str == NULL)
+		return (NULL);
+	if (num == 0)
+	{
+		str[pos++] = '0';
+		str[pos] = '\0';
+		return (str);
+	}
+	for (pos = 0; num != 0; pos++)
+	{
+		aux = num % base;
+		if (aux > 9)
+			str[pos] = (aux - 10) + 97;
+		else
+			str[pos] = aux + '0';
+		num = num / base;
+	}
+	str[pos] = '\n';
+	rev_string(str, pos);
+	return (str);
+}
+/**
+ * rev_string - function to reverse a string
+ * @s: string to reverse
+ * @size: size of the string
+ *
+ * Return: void
+ */
+void rev_string(char *s, int size)
+{
+	int a = 0, b = 0, aux = 0;
+
+	a = size - 1;
+	for (b = 0; b < a; b++)
+	{
+		aux = *(s + b);
+		*(s + b) = *(s + a);
+		*(s + a) = aux;
+		a--;
+	}
+}
+/**
+ * num_len - function that calculate the length of a number to be converted to
+ * string
+ * @num: number expected to convert to string
+ * @base: base number
+ *
+ * Return: the length of characters needed to convert the num to string
+ */
+int num_len(unsigned int num, unsigned int base)
+{
+	int len = 0;
+
+	if (num == 0)
+		len++;
+	for (; num != 0; len++)
+		num = num / base;
+	return (len);
+}
