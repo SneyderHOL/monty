@@ -8,9 +8,9 @@
  */
 void error_malloc(unsigned int line_number)
 {
-        (void) line_number;
+	(void) line_number;
 
-        fprintf(stderr, "Error: malloc failed");
+	fprintf(stderr, "Error: malloc failed");
 }
 
 /**
@@ -20,7 +20,7 @@ void error_malloc(unsigned int line_number)
  */
 void error_push(unsigned int line_number)
 {
-        fprintf(stderr, "L %u: usage push integer\n", line_number);
+	fprintf(stderr, "L %u: usage push integer\n", line_number);
 }
 
 
