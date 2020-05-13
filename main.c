@@ -14,7 +14,6 @@ int main(int argc, char **argv)
 	ssize_t line_read_char = 0;
 	unsigned int count = 0;
 	stack_t *stack = NULL;
-	int global_variable = 2;
 
 	if (argc != 2)
 	{

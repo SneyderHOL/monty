@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include "monty.h"
+
 /**
  * exec_push - pushes an element to the stack.
  * @stack: doubly linked list representation of a stack (or queue).
@@ -10,10 +11,12 @@ void exec_push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node = malloc(sizeof(stack_t));
 
+	(void) line_number;
+
 	if (!new_node)
 		return;
 
-	new_node->n = line_number;
+	new_node->n = global_variable;
 	new_node->next = (*stack);
 	new_node->prev = NULL;
 
@@ -53,19 +56,12 @@ void exec_pall(stack_t **stack, unsigned int line_number)
  */
 void exec_pint(stack_t **stack, unsigned int line_number)
 {
-	stack_t *aux = NULL;
-	char *num = NULL;
-
 	(void) line_number;
 
 	if (stack == NULL || *stack == NULL)
 		return;
 
-	aux = *stack;
-
-	num = _itoa(aux->n, 10);
-	write(1, num, _strlen(num));
-	free(num);
+	printf("%d\n", (*stack)->n);
 }
 
 /**

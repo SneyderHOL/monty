@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include "monty.h"
+int global_variable = 0;
 
 /**
  * call_functions - compares opcode to call function
@@ -26,6 +27,8 @@ void call_functions(stack_t **stack, char **array, unsigned int line_number)
 	{
 		if (_strcmp(array[0], funcs[fcount].opcode) == 1)
 		{
+			if (fcount == 0)
+				global_variable = atoi(array[1]);
 			funcs[fcount].f(stack, line_number);
 			break;
 		}
