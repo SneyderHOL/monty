@@ -23,7 +23,6 @@ void error_push(unsigned int line_number)
 	fprintf(stderr, "L %u: usage push integer\n", line_number);
 }
 
-
 /**
  * error_pop - function to print an error message
  * @line_number: number of line

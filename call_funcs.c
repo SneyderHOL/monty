@@ -42,7 +42,9 @@ void call_functions(stack_t **stack, char **array, unsigned int line_number,
 	}
 	if (fcount == 7)
 	{
-		fprintf(stderr, "L<%d>: unknown instruction <%s>\n",
+		if (*array[0] == '\n')
+			return;
+		fprintf(stderr, "L %d: unknown instruction %s\n",
 			line_number, array[0]);
 		exit_instruction(stack, ptr, line);
 	}

@@ -18,7 +18,7 @@ void exec_push(stack_t **stack, unsigned int line_number)
 		return;
 	}
 
-	if (stack == NULL || *stack == NULL)
+	if (stack == NULL)
 	{
 		error_push(line_number);
 		global_variable[1] = -1;
