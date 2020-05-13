@@ -1,19 +1,25 @@
 #include <stdlib.h>
 #include "monty.h"
-int global_variable[2] = {0,0};
+
+int global_variable[2] = {0, 0};
 
 /**
  * call_functions - compares opcode to call function
- * @opcode: string to compare
+ * @stack: double pointer to the stack
+ * @array: array of strings containing the arguments from file
+ * @line_number: number of line readed from file
+ * @ptr: FILE pointer to the file
+ * @line: string containing the line from file
+ *
  * Return: Nothing meanwhile.
  */
 
 void call_functions(stack_t **stack, char **array, unsigned int line_number,
-                    FILE *ptr, char *line)
+		    FILE *ptr, char *line)
 {
-        int fcount = NULL;
+	int fcount = NULL;
 
-        instruction_t funcs[] = {
+	instruction_t funcs[] = {
 		{"push", exec_push},
 		{"pall", exec_pall},
 		{"pint", exec_pint},
@@ -24,22 +30,22 @@ void call_functions(stack_t **stack, char **array, unsigned int line_number,
 		{NULL, NULL}
 	};
 
-        for (fcount = 0; funcs[fcount].opcode != NULL || fcount < 7; fcount++)
-        {
-                if (_strcmp(array[0], funcs[fcount].opcode) == 1)
-                {
-                        if (fcount == 0)
-                                global_variable[0] = atoi(array[1]);
-                        funcs[fcount].f(stack, line_number);
-                        break;
-                }
-        }
-        if (fcount == 7)
-        {
-                fprintf(stderr, "L<%d>: unknown instruction <%s>\n",
-                        line_number, array[0]);
-                exit_instruction(stack, ptr, line);
-        }
+	for (fcount = 0; funcs[fcount].opcode != NULL || fcount < 7; fcount++)
+	{
+		if (_strcmp(array[0], funcs[fcount].opcode) == 1)
+		{
+			if (fcount == 0)
+				global_variable[0] = atoi(array[1]);
+			funcs[fcount].f(stack, line_number);
+			break;
+		}
+	}
+	if (fcount == 7)
+	{
+		fprintf(stderr, "L<%d>: unknown instruction <%s>\n",
+			line_number, array[0]);
+		exit_instruction(stack, ptr, line);
+	}
 }
 /**
  * _strcmp - compares two strings
@@ -47,8 +53,6 @@ void call_functions(stack_t **stack, char **array, unsigned int line_number,
  * @s2: string two
  * Return: Nothing meanwhile.
  */
-
-
 int _strcmp(char *s1, char *s2)
 {
 	int a = 0;

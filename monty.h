@@ -20,9 +20,9 @@ extern int global_variable[2];
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -35,8 +35,8 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 /**  Function prototoypes   **/
@@ -70,7 +70,7 @@ void exit_instruction(stack_t **stack, FILE *ptr, char *line);
 void free_stack_t(stack_t *head);
 
 void call_functions(stack_t **stack, char **array, unsigned int line_number,
-                    FILE *ptr, char *line);
+		    FILE *ptr, char *line);
 int _strlen(char *s);
 char *str_concat(char *s1, char *s2);
 int _strcmp(char *s1, char *s2);
