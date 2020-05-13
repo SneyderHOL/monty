@@ -10,6 +10,11 @@
 void exec_push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node = malloc(sizeof(stack_t));
+	if (!new_node)
+	{
+		fprintf(stderr, "Error: malloc failed");
+		exit(EXIT_FAILURE);
+	}
 
 	(void) line_number;
 
