@@ -5,10 +5,21 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-/**  Global variable  **/
-extern int global_variable[2];
-
 /**  Structs  **/
+/**
+ * struct global_var - struct to use global variables
+ * @n: integer to be inserted in the stack
+ * @err: integer to handling errors
+ *
+ * Description: struct to use global variables 
+ */
+typedef struct global_var
+{
+	int n;
+	int err;
+} glob;
+
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -38,6 +49,10 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+/**  Global variable  **/
+extern glob global_variable;
+
 
 /**  Function prototoypes   **/
 

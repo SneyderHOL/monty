@@ -1,4 +1,7 @@
 #include "monty.h"
+
+glob global_variable;
+
 /**
  * main - Entry point
  * @argc: number of arguments
@@ -15,6 +18,8 @@ int main(int argc, char **argv)
 	unsigned int count = 0;
 	stack_t *stack = NULL;
 
+	global_variable.n = 0;
+	global_variable.err = 0;
 	if (argc != 2)
 	{
 		write(STDERR_FILENO, "USAGE: monty file\n", 18);
@@ -28,7 +33,7 @@ int main(int argc, char **argv)
 	{
 		split_line(args, line);
 		call_functions(&stack, args, count, fptr, line);
-		if (global_variable[1] == -1)
+		if (global_variable.err == -1)
 			break;
 		line_read_char = getline(&line, &lineSize, fptr);
 	}

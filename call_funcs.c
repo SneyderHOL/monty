@@ -11,9 +11,6 @@
  *
  * Return: Nothing meanwhile.
  */
-
-int global_variable[2] = {0, 0};
-
 void call_functions(stack_t **stack, char **array, unsigned int line_number,
 		    FILE *ptr, char *line)
 {
@@ -37,9 +34,9 @@ void call_functions(stack_t **stack, char **array, unsigned int line_number,
 			if (fcount == 0)
 			{
 				if (validate_number(array[1]) == 0)
-					global_variable[0] = atoi(array[1]);
+					global_variable.n = atoi(array[1]);
 				else
-					global_variable[1] = 1;
+					global_variable.err = 1;
 			}
 			funcs[fcount].f(stack, line_number);
 			break;
