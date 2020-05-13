@@ -1,8 +1,6 @@
 #include <stdlib.h>
 #include "monty.h"
 
-int global_variable[2] = {0, 0};
-
 /**
  * call_functions - compares opcode to call function
  * @stack: double pointer to the stack
@@ -13,6 +11,8 @@ int global_variable[2] = {0, 0};
  *
  * Return: Nothing meanwhile.
  */
+
+int global_variable[2] = {0, 0};
 
 void call_functions(stack_t **stack, char **array, unsigned int line_number,
 		    FILE *ptr, char *line)
