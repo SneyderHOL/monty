@@ -75,7 +75,7 @@ int _strlen(char *s);
 char *str_concat(char *s1, char *s2);
 int _strcmp(char *s1, char *s2);
 void validate_file(FILE *fptr, char *filename);
-
+int validate_number(char *str);
 
 
 void error_malloc(unsigned int line_number);

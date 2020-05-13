@@ -45,3 +45,24 @@ void exit_instruction(stack_t **stack, FILE *fptr, char *line)
 	fclose(fptr);
 	exit(EXIT_FAILURE);
 }
+/**
+ * validate_number - function to check if a string contains a character
+ * different than a number character
+ * @str: string to operate
+ *
+ * Return: -1 if the string contain an invalid character, 0 otherwise
+ */
+int validate_number(char *str)
+{
+	int i = 0, c = 0;
+
+	if (str == NULL || *str == '\0')
+		return (-1);
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		c = str[i];
+		if (c < 48 || c > 57)
+			return (-1);
+	}
+	return (0);
+}
