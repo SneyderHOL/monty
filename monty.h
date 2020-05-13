@@ -75,8 +75,15 @@ int _strlen(char *s);
 char *str_concat(char *s1, char *s2);
 int _strcmp(char *s1, char *s2);
 void validate_file(FILE *fptr, char *filename);
+
+
+
+void error_malloc(unsigned int line_number);
+void error_push(unsigned int line_number);
 void error_pop(unsigned int line_number);
 void error_swap(unsigned int line_number);
+
+
 char *_itoa(unsigned int num, unsigned int base);
 void rev_string(char *s, int size);
 int num_len(unsigned int num, unsigned int base);
