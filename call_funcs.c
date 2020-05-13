@@ -1,39 +1,38 @@
-#include <stdarg.h>
-#include <unistd.h>
 #include <stdlib.h>
 #include "monty.h"
+
 /**
- * instruction_t - compares opcode to call function
+ * call_functions - compares opcode to call function
  * @opcode: string to compare
  * Return: Nothing meanwhile.
  */
 
-void call_functions(char *command, ...){
+void call_functions(char *str)
+{
 
-	int fcount = 0;
+	int fcount = NULL;
+	int line_number = 2;
 
-	va_list ap;
-	instruction_t funcs[] =
-		{
-			{"push", exe_push},
-			{"pall", exe_pall},
-			{"pint", exe_pint},
-			{"pop", exe_pop},
-			{"swap", exe_swap},
-			{"add", exe_add},
-			{"nop", NULL},
-			{NULL, NULL}
+	instruction_t funcs[] = {
+		    {"push", exec_push},
+		    {"pall", exec_pall},
+		    {"pint", exec_pint},
+		    {"pop", exec_pop},
+		    {"swap", exec_swap},
+		    {"add", exec_add},
+		    {"nop", NULL},
+		    {NULL, NULL}
 		};
 
-	va_start(ap, command);
-
-	while (funcs[fcount] != '\0')
+	for (fcount = 0; funcs[fcount].opcode != NULL; fcount++)
 	{
-		_strcmp(command, funcs[fcount].opcode);
-		if (_strcmp == 1)
-			funcs[fcount].f(**stack, line_number);
-		fcount++;
+		if (_strcmp(str, funcs[fcount].opcode) == 1)
+		{
+			funcs[fcount].f(line_number);
+			break;
+		}
 	}
+}
 
 int _strcmp(char *s1, char *s2)
 {
