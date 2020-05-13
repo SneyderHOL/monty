@@ -60,8 +60,19 @@ void exec_pall(stack_t **stack, unsigned int line_number)
  */
 void exec_pint(stack_t **stack, unsigned int line_number)
 {
-	(void) stack;
+	stack_t *aux = NULL;
+	char *num = NULL;
+
 	(void) line_number;
+
+	if (stack == NULL || *stack == NULL)
+		return;
+
+	aux = *stack;
+
+	num = _itoa(aux->n, 10);
+	write(1, num, _strlen(num));
+	free(num);
 }
 
 /**
