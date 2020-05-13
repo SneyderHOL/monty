@@ -7,10 +7,9 @@
  * Return: Nothing meanwhile.
  */
 
-void call_functions(char *str, int line_number)
+void call_functions(stack_t **stack, char **array, unsigned int line_number)
 {
-
-	int fcount = NULL;
+        int fcount = NULL;
 
 	instruction_t funcs[] = {
 		    {"push", exec_push},
@@ -25,13 +24,21 @@ void call_functions(char *str, int line_number)
 
 	for (fcount = 0; funcs[fcount].opcode != NULL; fcount++)
 	{
-		if (_strcmp(str, funcs[fcount].opcode) == 1)
+		if (_strcmp(array[0], funcs[fcount].opcode) == 1)
 		{
-			funcs[fcount].f(**stack, line_number);
+			funcs[fcount].f(stack, line_number);
 			break;
 		}
 	}
 }
+
+/**
+ * _strcmp - compares two strings
+ * @s1: string one
+ * @s2: string two
+ * Return: Nothing meanwhile.
+ */
+
 
 int _strcmp(char *s1, char *s2)
 {

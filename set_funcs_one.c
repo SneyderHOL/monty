@@ -11,7 +11,7 @@ void exec_push(stack_t **stack, unsigned int line_number)
 	stack_t *new_node = malloc(sizeof(stack_t));
 
 	if (!new_node)
-		return (NULL);
+		return;
 
 	new_node->n = line_number;
 	new_node->next = (*stack);
@@ -21,8 +21,6 @@ void exec_push(stack_t **stack, unsigned int line_number)
 		(*stack)->prev = new_node;
 
 	(*stack) = new_node;
-
-	return (new_node);
 }
 
 /**
@@ -37,12 +35,16 @@ void exec_pall(stack_t **stack, unsigned int line_number)
 	stack_t *aux = NULL;
 	char *num = NULL;
 
+	(void) line_number;
+
 	if (stack == NULL || *stack == NULL)
 		return;
 	aux = *stack;
 	while (aux != NULL)
 	{
-		num = itoa(aux->n, 10);
+		num = _itoa(aux->n, 10);
+		if (num == NULL)
+			continue;
 		write(1, num, _strlen(num));
 		free(num);
 		num = NULL;
@@ -58,7 +60,8 @@ void exec_pall(stack_t **stack, unsigned int line_number)
  */
 void exec_pint(stack_t **stack, unsigned int line_number)
 {
-
+	(void) stack;
+	(void) line_number;
 }
 
 /**
@@ -69,6 +72,8 @@ void exec_pint(stack_t **stack, unsigned int line_number)
  */
 void exec_pop(stack_t **stack, unsigned int line_number)
 {
+	(void) stack;
+	(void) line_number;
 
 }
 
@@ -80,5 +85,6 @@ void exec_pop(stack_t **stack, unsigned int line_number)
  */
 void exec_swap(stack_t **stack, unsigned int line_number)
 {
-
+	(void) stack;
+	(void) line_number;
 }

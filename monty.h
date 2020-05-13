@@ -43,8 +43,8 @@ void exec_pall(stack_t **stack, unsigned int line_number);
 void exec_pint(stack_t **stack, unsigned int line_number);
 void exec_pop(stack_t **stack, unsigned int line_number);
 void exec_swap(stack_t **stack, unsigned int line_number);
-/*add*/
-/*nop*/
+void exec_add(stack_t **stack, unsigned int line_number);
+void exec_nop(stack_t **stack, unsigned int line_number);
 
 /*sub*/
 /*div*/
@@ -62,11 +62,18 @@ void exec_swap(stack_t **stack, unsigned int line_number);
 /*mul*/
 /*mul_lvlup*/
 
+void free_stack_t(stack_t *head);
+
+void call_functions(stack_t **stack, char **array, unsigned int line_number);
 int _strlen(char *s);
 char *str_concat(char *s1, char *s2);
-
+int _strcmp(char *s1, char *s2);
 void validate_filename(char *filename);
 void validate_file(FILE *fptr);
+char *_itoa(unsigned int num, unsigned int base);
+void rev_string(char *s, int size);
+int num_len(unsigned int num, unsigned int base);
+
 
 void split_line(char **args, char *line);
 void free_grid(char **grid, int height);

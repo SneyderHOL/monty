@@ -49,3 +49,22 @@ void validate_line_read(ssize_t line_read)
 		exit(EXIT_FAILURE);
 	}
 }
+
+/**
+ * free_stack_t - frees a DLL list.
+ * @head: Pointer to head of list.
+ *
+ * Return: Always EXIT_SUCCESS.
+ */
+
+void free_stack_t(stack_t *head)
+{
+	stack_t *cleaner = NULL;
+
+	while (head)
+	{
+		cleaner = head;
+		head = cleaner->next;
+		free(cleaner);
+	}
+}

@@ -12,8 +12,8 @@ int main(int argc, char **argv)
 	FILE *fptr = NULL;
 	size_t lineSize = 0;
 	ssize_t line_read_char = 0;
-	int count = 0, i = 0;
-	stack_t stack = NULL;
+	unsigned int count = 0;
+	stack_t *stack = NULL;
 
 	if (argc != 2)
 	{
@@ -28,12 +28,10 @@ int main(int argc, char **argv)
 	for (count = 1; line_read_char != -1; count++)
 	{
 		split_line(args, line);
-		for (i = 0; i < 3 && args[i] != NULL; i++)
-		{
-			printf("%s\n", args[i]);
-		}
+		call_functions(&stack, args, count);
 		line_read_char = getline(&line, &lineSize, fptr);
 	}
+	free_stack_t(stack);
 	free(line);
 	fclose(fptr);
 	return (0);
