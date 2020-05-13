@@ -77,9 +77,19 @@ void exec_pint(stack_t **stack, unsigned int line_number)
  */
 void exec_pop(stack_t **stack, unsigned int line_number)
 {
-	(void) stack;
-	(void) line_number;
-
+	stack_t *aux = NULL;
+	
+/*	(void) line_number;*/
+	if (stack == NULL || *stack == NULL)
+	{
+		error_pop(line_number);
+		return;
+	}
+	aux = *stack;
+	*stack = aux->next;
+	if (*stack != NULL)
+		(*stack)->prev = NULL;
+	free(aux);
 }
 
 /**

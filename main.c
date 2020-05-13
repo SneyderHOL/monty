@@ -21,7 +21,6 @@ int main(int argc, char **argv)
 		return (EXIT_FAILURE);
 	}
 	filename = argv[1];
-	validate_filename(filename);
 	fptr = fopen(filename, "r");
 	validate_file(fptr, filename);
 	line_read_char = getline(&line, &lineSize, fptr);
