@@ -33,21 +33,14 @@ void exec_push(stack_t **stack, unsigned int line_number)
 void exec_pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *aux = NULL;
-	char *num = NULL;
 
 	(void) line_number;
-
 	if (stack == NULL || *stack == NULL)
 		return;
 	aux = *stack;
 	while (aux != NULL)
 	{
-		num = _itoa(aux->n, 10);
-		if (num == NULL)
-			continue;
-		write(1, num, _strlen(num));
-		free(num);
-		num = NULL;
+		printf("%d\n", aux->n);
 		aux = aux->next;
 	}
 }

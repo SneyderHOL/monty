@@ -12,7 +12,7 @@ void split_line(char **args, char *line)
 	int i = 0;
 
 	aux = strtok(line, delim);
-	for (i = 0; i < 2; i++)
+	for (i = 0; i < 2 && aux != NULL; i++)
 	{
 		args[i] = aux;
 		aux = strtok(NULL, delim);
