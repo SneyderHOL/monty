@@ -80,9 +80,9 @@ int validate_number(char *str);
 
 void error_malloc(unsigned int line_number);
 void error_push(unsigned int line_number);
+void error_pint(unsigned int line_number);
 void error_pop(unsigned int line_number);
 void error_swap(unsigned int line_number);
-
 
 char *_itoa(unsigned int num, unsigned int base);
 void rev_string(char *s, int size);

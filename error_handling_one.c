@@ -24,6 +24,16 @@ void error_push(unsigned int line_number)
 }
 
 /**
+ * error_pint - function to print an error message.
+ * @line_number: number of line.
+ *
+ */
+void error_pint(unsigned int line_number)
+{
+	fprintf(stderr, "L %u: can't pint, stack empty\n", line_number);
+}
+
+/**
  * error_pop - function to print an error message
  * @line_number: number of line
  *

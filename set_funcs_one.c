@@ -18,7 +18,7 @@ void exec_push(stack_t **stack, unsigned int line_number)
 		return;
 	}
 
-	if (stack == NULL)
+	if (stack == NULL || global_variable[1] == NULL)
 	{
 		error_push(line_number);
 		global_variable[1] = -1;
@@ -61,10 +61,12 @@ void exec_pall(stack_t **stack, unsigned int line_number)
  */
 void exec_pint(stack_t **stack, unsigned int line_number)
 {
-	(void) line_number;
-
 	if (stack == NULL || *stack == NULL)
+	{
+		error_pint(line_number);
+		global_variable[1] = -1;
 		return;
+	}
 
 	printf("%d\n", (*stack)->n);
 }
