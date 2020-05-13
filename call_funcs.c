@@ -39,7 +39,7 @@ void call_functions(stack_t **stack, char **array, unsigned int line_number,
 				if (validate_number(array[1]) == 0)
 					global_variable[0] = atoi(array[1]);
 				else
-					array[1] = NULL;
+					global_variable[1] = 1;
 			}
 			funcs[fcount].f(stack, line_number);
 			break;
