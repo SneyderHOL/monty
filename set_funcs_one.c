@@ -11,14 +11,20 @@ void exec_push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node = malloc(sizeof(stack_t));
 
-	(void) line_number;
 	if (!new_node)
 	{
-		fprintf(stderr, "Error: malloc failed");
-		exit(EXIT_FAILURE);
-	}
-	if (!new_node)
+		error_malloc(line_number);
+		globarl_variable[1] = -1;
 		return;
+	}
+
+	if (stack == NULL || *stack == NULL)
+	{
+		error_push(line_number);
+		global_variable[1] = -1;
+		return;
+	}
+
 	new_node->n = global_variable[0];
 	new_node->next = (*stack);
 	new_node->prev = NULL;
