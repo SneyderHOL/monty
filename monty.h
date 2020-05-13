@@ -11,7 +11,7 @@
  * @n: integer to be inserted in the stack
  * @err: integer to handling errors
  *
- * Description: struct to use global variables 
+ * Description: struct to use global variables
  */
 typedef struct global_var
 {

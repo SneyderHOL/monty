@@ -9,14 +9,8 @@
  */
 void exec_push(stack_t **stack, unsigned int line_number)
 {
-	stack_t *new_node = malloc(sizeof(stack_t));
 
-	if (!new_node)
-	{
-		error_malloc(line_number);
-		global_variable.err = -1;
-		return;
-	}
+	stack_t *new_node = NULL;
 
 	if (stack == NULL || global_variable.err == 1)
 	{
@@ -24,6 +18,15 @@ void exec_push(stack_t **stack, unsigned int line_number)
 		global_variable.err = -1;
 		return;
 	}
+
+	new_node = malloc(sizeof(stack_t));
+	if (!new_node)
+	{
+		error_malloc(line_number);
+		global_variable.err = -1;
+		return;
+	}
+
 
 	new_node->n = global_variable.n;
 	new_node->next = (*stack);
