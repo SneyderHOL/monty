@@ -7,11 +7,10 @@
  * Return: Nothing meanwhile.
  */
 
-void call_functions(char *str)
+void call_functions(char *str, int line_number)
 {
 
 	int fcount = NULL;
-	int line_number = 2;
 
 	instruction_t funcs[] = {
 		    {"push", exec_push},
@@ -28,7 +27,7 @@ void call_functions(char *str)
 	{
 		if (_strcmp(str, funcs[fcount].opcode) == 1)
 		{
-			funcs[fcount].f(line_number);
+			funcs[fcount].f(**stack, line_number);
 			break;
 		}
 	}
