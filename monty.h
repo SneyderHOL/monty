@@ -1,9 +1,12 @@
 #ifndef HOLBERTON_MONTY_H
 #define HOLBERTON_MONTY_H
-/**  imports  **/
+/**  Imports  **/
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+
+/**  Global variable  **/
+extern int global_variable;
 
 /**  Structs  **/
 /**
