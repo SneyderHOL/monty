@@ -6,7 +6,7 @@
 #include <unistd.h>
 
 /**  Global variable  **/
-extern int global_variable;
+extern int global_variable[2];
 
 /**  Structs  **/
 /**

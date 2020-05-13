@@ -21,7 +21,7 @@ void exec_push(stack_t **stack, unsigned int line_number)
 	if (!new_node)
 		return;
 
-	new_node->n = global_variable;
+	new_node->n = global_variable[0];
 	new_node->next = (*stack);
 	new_node->prev = NULL;
 
