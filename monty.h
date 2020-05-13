@@ -38,11 +38,11 @@ typedef struct instruction_s
 
 /**  Function prototoypes   **/
 
-/*push*/
-/*pall*/
-/*pint*/
-/*pop*/
-/*swap*/
+void exec_push(stack_t **stack, unsigned int line_number);
+void exec_pall(stack_t **stack, unsigned int line_number);
+void exec_pint(stack_t **stack, unsigned int line_number);
+void exec_pop(stack_t **stack, unsigned int line_number);
+void exec_swap(stack_t **stack, unsigned int line_number);
 /*add*/
 /*nop*/
 
