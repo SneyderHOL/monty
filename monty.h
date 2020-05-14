@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-
+#include <string.h>
 /**  Structs  **/
 /**
  * struct global_var - struct to use global variables

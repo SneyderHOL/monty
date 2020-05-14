@@ -1,5 +1,4 @@
 #include "monty.h"
-#include "string.h"
 /**
  * split_line - function to tokenize a string into arguments
  * @args: array of strings to store the arguments

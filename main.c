@@ -33,6 +33,8 @@ int main(int argc, char **argv)
 	{
 		split_line(args, line);
 		call_functions(&stack, args, count, fptr, line);
+		args[0] = NULL;
+		args[1] = NULL;
 		if (global_variable.err == -1)
 			break;
 		line_read_char = getline(&line, &lineSize, fptr);
