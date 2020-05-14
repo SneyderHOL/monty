@@ -9,7 +9,7 @@ void exec_add(stack_t **stack, unsigned int line_number)
 {
 	int tmp = 0;
 
-	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
 	{
 		error_add(line_number);
 		global_variable[1] = -1;
