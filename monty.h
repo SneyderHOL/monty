@@ -6,14 +6,6 @@
 #include <unistd.h>
 #include <string.h>
 /**  Structs  **/
-/**
- * struct global_var - struct to use global variables
- * @n: integer to be inserted in the stack
- * @err: integer to handling errors
- *
- * Description: struct to use global variables
- */
-extern int global_variable[2];
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -46,7 +38,7 @@ typedef struct instruction_s
 } instruction_t;
 
 /**  Global variable  **/
-
+extern int global_variable[2];
 
 /**  Function prototoypes   **/
 

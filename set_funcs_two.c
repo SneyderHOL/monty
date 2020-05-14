@@ -1,13 +1,12 @@
 #include "monty.h"
 /**
- * exec_swap - swaps the top two elements of the stack.
+ * exec_add - adds the top elements of the stack.
  * @stack: doubly linked list representation of a stack (or queue).
  * @line_number: integer
  * return: void.
  */
 void exec_add(stack_t **stack, unsigned int line_number)
 {
-
 	int tmp = 0;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
