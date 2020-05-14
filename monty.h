@@ -67,6 +67,8 @@ void exec_sub(stack_t **stack, unsigned int line_number);
 /*mul*/
 /*mul_lvlup*/
 
+
+
 void exit_instruction(stack_t **stack, FILE *ptr, char *line);
 
 void free_stack_t(stack_t *head);

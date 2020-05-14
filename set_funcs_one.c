@@ -23,7 +23,6 @@ void exec_push(stack_t **stack, unsigned int line_number)
 	if (!new_node)
 	{
 		fprintf(stderr, "Error: malloc failed");
-		error_malloc(line_number);
 		global_variable[1] = -1;
 		return;
 	}
