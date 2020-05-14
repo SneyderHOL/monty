@@ -78,7 +78,7 @@ int _strcmp(char *s1, char *s2);
 void validate_file(FILE *fptr, char *filename);
 int validate_number(char *str);
 void validate_condition(int fcount, char *string, unsigned int line_number,
-			stack_t *stack, FILE *ptr, char *line);
+			stack_t **stack, FILE *ptr, char *line);
 
 char *_itoa(unsigned int num, unsigned int base);
 void rev_string(char *s, int size);
