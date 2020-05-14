@@ -20,3 +20,15 @@ void exec_add(stack_t **stack, unsigned int line_number)
 	((*stack)->next)->n = tmp;
 	exec_pop(stack, line_number);
 }
+
+/**
+ * exec_nop - does nothing.
+ * @stack: doubly linked list representation of a stack (or queue).
+ * @line_number: integer
+ * return: void.
+ */
+void exec_nop(stack_t **stack, unsigned int line_number)
+{
+	(void) stack;
+	(void) line_number;
+}
