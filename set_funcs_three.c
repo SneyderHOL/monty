@@ -101,3 +101,28 @@ void exec_rotl(stack_t **stack, unsigned int line_number)
 		aux = aux->next;
 	}
 }
+
+/**
+ * exec_rotr - rotate the stack to the bottom.
+ * @stack: doubly linked list representation of a stack (or queue).
+ * @line_number: number of line of the opcode to execute
+ * return: void.
+ */
+void exec_rotr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *aux = NULL;
+
+	(void) line_number;
+
+	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
+		return;
+
+	aux = *stack;
+	while (aux->next != NULL)
+		aux = aux->next;
+	aux->next = (*stack);
+	(aux->prev)->next = NULL;
+	aux->prev = NULL;
+	(*stack)->prev = aux;
+	(*stack) = aux;
+}

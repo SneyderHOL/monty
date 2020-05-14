@@ -1,5 +1,5 @@
-#include <ctype.h>
 #include "monty.h"
+#include <ctype.h>
 /**
  * exec_add - adds the top elements of the stack.
  * @stack: doubly linked list representation of a stack (or queue).
