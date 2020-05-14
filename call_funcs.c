@@ -34,24 +34,21 @@ void call_functions(stack_t **stack, char **array, unsigned int line_number,
 	{
 		if (_strcmp(array[0], funcs[fcount].opcode) == 1)
 		{
-			if (fcount == 0)
+			if (fcount == 0 && array[1] != NULL)
 			{
-				global_variable.n = atoi(array[1]);
-				if (global_variable.n >= 0)
+				global_variable[0] = atoi(array[1]);
+				if (global_variable[0] >= 0)
 					if (validate_number(array[1]) != 0)
-						global_variable.err = 1;
+						global_variable[1] = 1;
 			}
+			else if (fcount == 0 && array[1] == NULL)
+				global_variable[1] = 1;
 			funcs[fcount].f(stack, line_number);
 			break;
 		}
 	}
 	if (fcount == 7)
 	{
-		if (*line == '\n')
-		{
-			printf("salto, %s", line);
-			return;
-		}
 		fprintf(stderr, "L%u: unknown instruction %s\n",
 			line_number, array[0]);
 		exit_instruction(stack, ptr, line);

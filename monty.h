@@ -13,12 +13,6 @@
  *
  * Description: struct to use global variables
  */
-typedef struct global_var
-{
-	int n;
-	int err;
-} glob;
-
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -51,7 +45,7 @@ typedef struct instruction_s
 } instruction_t;
 
 /**  Global variable  **/
-extern glob global_variable;
+extern int global_variable[2];
 
 
 /**  Function prototoypes   **/
