@@ -49,8 +49,8 @@ void exec_sub(stack_t **stack, unsigned int line_number)
 		global_variable[1] = -1;
 		return;
 	}
-	tmp = (*stack)->n;
-	tmp -= ((*stack)->next)->n;
+	tmp = ((*stack)->next)->n;
+	tmp -= (*stack)->n;
 	((*stack)->next)->n = tmp;
 	exec_pop(stack, line_number);
 }
