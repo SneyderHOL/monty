@@ -64,13 +64,12 @@ void exec_pall(stack_t **stack, unsigned int line_number)
  */
 void exec_pint(stack_t **stack, unsigned int line_number)
 {
-	if (stack == NULL || *stack == NULL)
+	if (*stack == NULL)
 	{
 		error_pint(line_number);
 		global_variable.err = -1;
 		return;
 	}
-
 	printf("%d\n", (*stack)->n);
 }
 /**
