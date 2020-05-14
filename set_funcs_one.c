@@ -84,7 +84,7 @@ void exec_pop(stack_t **stack, unsigned int line_number)
 
 	if (stack == NULL || *stack == NULL)
 	{
-		error_pop(line_number);
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line_number);
 		global_variable[1] = -1;
 		return;
 	}
@@ -107,7 +107,7 @@ void exec_swap(stack_t **stack, unsigned int line_number)
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 	{
-		error_swap(line_number);
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
 		global_variable[1] = -1;
 		return;
 	}
