@@ -50,6 +50,7 @@ void exec_swap(stack_t **stack, unsigned int line_number);
 void exec_add(stack_t **stack, unsigned int line_number);
 void exec_nop(stack_t **stack, unsigned int line_number);
 void exec_sub(stack_t **stack, unsigned int line_number);
+void exec_mul(stack_t **stack, unsigned int line_number);
 
 /*sub*/
 /*div*/
@@ -66,8 +67,6 @@ void exec_sub(stack_t **stack, unsigned int line_number);
 /*add_2_dig*/
 /*mul*/
 /*mul_lvlup*/
-
-
 
 void exit_instruction(stack_t **stack, FILE *ptr, char *line);
 
