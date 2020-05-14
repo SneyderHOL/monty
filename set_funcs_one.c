@@ -14,7 +14,7 @@ void exec_push(stack_t **stack, unsigned int line_number)
 
 	if (stack == NULL || global_variable[1] == 1)
 	{
-		error_push(line_number);
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		global_variable[1] = -1;
 		return;
 	}
@@ -22,6 +22,7 @@ void exec_push(stack_t **stack, unsigned int line_number)
 	new_node = malloc(sizeof(stack_t));
 	if (!new_node)
 	{
+		fprintf(stderr, "Error: malloc failed");
 		error_malloc(line_number);
 		global_variable[1] = -1;
 		return;
@@ -66,7 +67,7 @@ void exec_pint(stack_t **stack, unsigned int line_number)
 {
 	if (*stack == NULL)
 	{
-		error_pint(line_number);
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
 		global_variable[1] = -1;
 		return;
 	}
