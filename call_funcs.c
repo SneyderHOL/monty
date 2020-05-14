@@ -16,19 +16,11 @@ void call_functions(stack_t **stack, char **array, unsigned int line_number,
 {
 	int fcount = 0;
 	instruction_t funcs[] = {
-		{"push", exec_push},
-		{"pall", exec_pall},
-		{"pint", exec_pint},
-		{"pop", exec_pop},
-		{"swap", exec_swap},
-		{"add", exec_add},
-		{"nop", exec_nop},
-		{"sub", exec_sub},
-		{"mul", exec_mul},
-		{"div", exec_div},
-		{"mod", exec_mod},
-		{"pchar", exec_pchar},
-		{"rotl", exec_rotl},
+		{"push", exec_push}, {"pall", exec_pall}, {"pint", exec_pint},
+		{"pop", exec_pop}, {"swap", exec_swap}, {"add", exec_add},
+		{"nop", exec_nop}, {"sub", exec_sub}, {"mul", exec_mul},
+		{"div", exec_div}, {"mod", exec_mod}, {"pchar", exec_pchar},
+		{"pstr", exec_pstr}, {"rotl", exec_rotl},
 		{NULL, NULL}
 	};
 
@@ -51,8 +43,9 @@ void call_functions(stack_t **stack, char **array, unsigned int line_number,
 			break;
 		}
 	}
-	if (fcount == 13)
-		validate_condition(fcount, array[0], line_number, stack, ptr, line);
+	if (fcount == 14)
+		validate_condition(fcount, array[0], line_number, stack,
+				   ptr, line);
 }
 /**
  * _strcmp - compares two strings

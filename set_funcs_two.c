@@ -1,3 +1,4 @@
+#include <ctype.h>
 #include "monty.h"
 /**
  * exec_add - adds the top elements of the stack.
@@ -75,4 +76,32 @@ void exec_mul(stack_t **stack, unsigned int line_number)
 	tmp *= (*stack)->n;
 	((*stack)->next)->n = tmp;
 	exec_pop(stack, line_number);
+}
+
+/**
+ * exec_pstr - prints the string starting at the top of the stack.
+ * @stack: doubly linked list representation of a stack (or queue).
+ * @line_number: integer
+ * return: void.
+ */
+void exec_pstr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *aux = *(stack);
+	(void) line_number;
+
+	if (stack == NULL || (*stack) == NULL)
+	{
+		printf("\n");
+		return;
+	}
+	while (aux)
+	{
+		if (aux->n == '\0')
+			break;
+		if (!(isascii((aux)->n)))
+			break;
+		printf("%c", aux->n);
+		aux = aux->next;
+	}
+	printf("\n");
 }
