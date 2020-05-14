@@ -66,3 +66,27 @@ int validate_number(char *str)
 	}
 	return (0);
 }
+/**
+ * validate_condition - function to check for a condition to apply the exit
+ * instruction.
+ * @fcount: number to operate
+ * @string: strings containing the first argument from a file
+ * @line_number: number of line readed from file
+ * @stack: double pointer to the stack
+ * @ptr: FILE pointer to the file
+ * @line: string containing the line from file
+ *
+ */
+void validate_condition(int fcount, char *string, unsigned int line_number,
+			stack_t *stack, FILE *ptr, char *line)
+{
+	if (fcount == 13)
+	{
+		if (string[0] == '#')
+			return;
+		fprintf(stderr, "L%u: unknown instruction %s\n",
+			line_number, array[0]);
+		exit_instruction(stack, ptr, line);
+	}
+
+}
