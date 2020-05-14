@@ -67,12 +67,12 @@ void exec_mul(stack_t **stack, unsigned int line_number)
 
 	if (*stack == NULL || (*stack)->next == NULL)
 	{
-		fprintf(stderr, "L%u: can't sub, stack too short\n", line_number);
+		fprintf(stderr, "L%u: can't mul, stack too short\n", line_number);
 		global_variable[1] = -1;
 		return;
 	}
-	tmp = (*stack)->n;
-	tmp *= ((*stack)->next)->n;
+	tmp = ((*stack)->next)->n;
+	tmp *= (*stack)->n;
 	((*stack)->next)->n = tmp;
 	exec_pop(stack, line_number);
 }
