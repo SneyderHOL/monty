@@ -7,7 +7,7 @@
  */
 void split_line(char **args, char *line)
 {
-	char *aux = NULL, delim[] = {' ', '\t', '\n', '\0', '#'};
+	char *aux = NULL, delim[] = {' ', '\t', '\n', '\0'};
 	int i = 0;
 
 	aux = strtok(line, delim);
