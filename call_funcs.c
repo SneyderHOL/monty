@@ -30,7 +30,7 @@ void call_functions(stack_t **stack, char **array, unsigned int line_number,
 	{
 		return;
 	}
-	for (fcount = 0; funcs[fcount].opcode != NULL || fcount < 7; fcount++)
+	for (fcount = 0; funcs[fcount].opcode != NULL; fcount++)
 	{
 		if (_strcmp(array[0], funcs[fcount].opcode) == 1)
 		{
