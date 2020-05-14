@@ -12,10 +12,10 @@ void exec_push(stack_t **stack, unsigned int line_number)
 
 	stack_t *new_node = NULL;
 
-	if (stack == NULL || global_variable.err == 1)
+	if (stack == NULL || global_variable[1] == 1)
 	{
 		error_push(line_number);
-		global_variable.err = -1;
+		global_variable[1] = -1;
 		return;
 	}
 
@@ -23,12 +23,12 @@ void exec_push(stack_t **stack, unsigned int line_number)
 	if (!new_node)
 	{
 		error_malloc(line_number);
-		global_variable.err = -1;
+		global_variable[1] = -1;
 		return;
 	}
 
 
-	new_node->n = global_variable.n;
+	new_node->n = global_variable[0];
 	new_node->next = (*stack);
 	new_node->prev = NULL;
 	if ((*stack))
@@ -64,13 +64,12 @@ void exec_pall(stack_t **stack, unsigned int line_number)
  */
 void exec_pint(stack_t **stack, unsigned int line_number)
 {
-	if (stack == NULL || *stack == NULL)
+	if (*stack == NULL)
 	{
 		error_pint(line_number);
-		global_variable.err = -1;
+		global_variable[1] = -1;
 		return;
 	}
-
 	printf("%d\n", (*stack)->n);
 }
 /**
@@ -86,7 +85,7 @@ void exec_pop(stack_t **stack, unsigned int line_number)
 	if (stack == NULL || *stack == NULL)
 	{
 		error_pop(line_number);
-		global_variable.err = -1;
+		global_variable[1] = -1;
 		return;
 	}
 	aux = *stack;
@@ -109,7 +108,7 @@ void exec_swap(stack_t **stack, unsigned int line_number)
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 	{
 		error_swap(line_number);
-		global_variable.err = -1;
+		global_variable[1] = -1;
 		return;
 	}
 	aux = (*stack)->next;
