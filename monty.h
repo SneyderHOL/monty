@@ -51,14 +51,12 @@ void exec_add(stack_t **stack, unsigned int line_number);
 void exec_nop(stack_t **stack, unsigned int line_number);
 void exec_sub(stack_t **stack, unsigned int line_number);
 void exec_mul(stack_t **stack, unsigned int line_number);
+void exec_div(stack_t **stack, unsigned int line_number);
+void exec_mod(stack_t **stack, unsigned int line_number);
+void exec_pchar(stack_t **stack, unsigned int line_number);
+void exec_rotl(stack_t **stack, unsigned int line_number);
 
-/*sub*/
-/*div*/
-/*mul*/
-/*mod*/
 /*comments*/
-/*pchar*/
-/*pstr*/
 /*rotl*/
 /*rotr*/
 /*stack*/
@@ -79,7 +77,8 @@ char *str_concat(char *s1, char *s2);
 int _strcmp(char *s1, char *s2);
 void validate_file(FILE *fptr, char *filename);
 int validate_number(char *str);
-
+void validate_condition(int fcount, char *string, unsigned int line_number,
+			stack_t *stack, FILE *ptr, char *line);
 
 char *_itoa(unsigned int num, unsigned int base);
 void rev_string(char *s, int size);
