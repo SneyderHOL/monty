@@ -21,7 +21,7 @@ void call_functions(stack_t **stack, char **array, unsigned int line_number,
 		{"nop", exec_nop}, {"sub", exec_sub}, {"mul", exec_mul},
 		{"div", exec_div}, {"mod", exec_mod}, {"pchar", exec_pchar},
 		{"pstr", exec_pstr}, {"rotl", exec_rotl}, {"rotr", exec_rotr},
-		{NULL, NULL}
+		{"stack", exec_stack}, {"queue", exec_queue}, {NULL, NULL}
 	};
 
 	if (array[0] == NULL)
@@ -43,7 +43,7 @@ void call_functions(stack_t **stack, char **array, unsigned int line_number,
 			break;
 		}
 	}
-	if (fcount == 15)
+	if (fcount == 17)
 		validate_condition(array[0], line_number, stack,
 				   ptr, line);
 }

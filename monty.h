@@ -38,7 +38,7 @@ typedef struct instruction_s
 } instruction_t;
 
 /**  Global variable  **/
-extern int global_variable[2];
+extern int global_variable[3];
 
 /**  Function prototoypes   **/
 
@@ -57,12 +57,8 @@ void exec_pchar(stack_t **stack, unsigned int line_number);
 void exec_pstr(stack_t **stack, unsigned int line_number);
 void exec_rotl(stack_t **stack, unsigned int line_number);
 void exec_rotr(stack_t **stack, unsigned int line_number);
-
-/*comments*/
-/*rotl*/
-/*rotr*/
-/*stack*/
-/*queue*/
+void exec_stack(stack_t **stack, unsigned int line_number);
+void exec_queue(stack_t **stack, unsigned int line_number);
 /*holberton*/
 /*add_2_dig*/
 /*mul*/
