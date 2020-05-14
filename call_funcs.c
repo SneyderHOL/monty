@@ -23,7 +23,7 @@ void call_functions(stack_t **stack, char **array, unsigned int line_number,
 		{"pop", exec_pop},
 		{"swap", exec_swap},
 		{"add", exec_add},
-		{"nop", NULL},
+		{"nop", exec_nop},
 		{NULL, NULL}
 	};
 	if (array[0] == NULL)
