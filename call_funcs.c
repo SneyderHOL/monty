@@ -37,7 +37,7 @@ void call_functions(stack_t **stack, char **array, unsigned int line_number,
 			if (fcount == 0 && array[1] != NULL)
 			{
 				global_variable[0] = atoi(array[1]);
-				if (global_variable[0] >= 0)
+				if (global_variable[0] > 0)
 					if (validate_number(array[1]) != 0)
 						global_variable[1] = 1;
 			}
