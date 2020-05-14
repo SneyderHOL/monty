@@ -44,7 +44,7 @@ void call_functions(stack_t **stack, char **array, unsigned int line_number,
 		}
 	}
 	if (fcount == 15)
-		validate_condition(fcount, array[0], line_number, stack,
+		validate_condition(array[0], line_number, stack,
 				   ptr, line);
 }
 /**

@@ -69,7 +69,6 @@ int validate_number(char *str)
 /**
  * validate_condition - function to check for a condition to apply the exit
  * instruction.
- * @fcount: number to operate
  * @string: strings containing the first argument from a file
  * @line_number: number of line readed from file
  * @stack: double pointer to the stack
@@ -77,7 +76,7 @@ int validate_number(char *str)
  * @line: string containing the line from file
  *
  */
-void validate_condition(int fcount, char *string, unsigned int line_number,
+void validate_condition(char *string, unsigned int line_number,
 			stack_t **stack, FILE *ptr, char *line)
 {
 	if (string[0] == '#')
