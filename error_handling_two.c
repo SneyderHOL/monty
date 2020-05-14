@@ -6,5 +6,5 @@
  */
 void error_add(unsigned int line_number)
 {
-        fprintf(stderr, "L%u: can't add, stack too short", line_number);
+	fprintf(stderr, "L%u: can't add, stack too short", line_number);
 }

@@ -7,7 +7,8 @@
  */
 void exec_add(stack_t **stack, unsigned int line_number)
 {
-        int tmp = 0;
+
+	int tmp = 0;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 	{
