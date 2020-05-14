@@ -80,13 +80,10 @@ int validate_number(char *str)
 void validate_condition(int fcount, char *string, unsigned int line_number,
 			stack_t **stack, FILE *ptr, char *line)
 {
-	if (fcount == 13)
-	{
-		if (string[0] == '#')
-			return;
-		fprintf(stderr, "L%u: unknown instruction %s\n",
-			line_number, string);
-		exit_instruction(stack, ptr, line);
-	}
+	if (string[0] == '#')
+		return;
+	fprintf(stderr, "L%u: unknown instruction %s\n",
+		line_number, string);
+	exit_instruction(stack, ptr, line);
 
 }
