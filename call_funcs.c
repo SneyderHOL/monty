@@ -14,8 +14,7 @@
 void call_functions(stack_t **stack, char **array, unsigned int line_number,
 		    FILE *ptr, char *line)
 {
-	int fcount = NULL;
-
+	int fcount = 0;
 	instruction_t funcs[] = {
 		{"push", exec_push},
 		{"pall", exec_pall},
@@ -24,12 +23,17 @@ void call_functions(stack_t **stack, char **array, unsigned int line_number,
 		{"swap", exec_swap},
 		{"add", exec_add},
 		{"nop", exec_nop},
+		{"sub", exec_sub},
+		{"mul", exec_mul},
+		{"div", exec_div},
+		{"mod", exec_mod},
+		{"pchar", exec_pchar},
+		{"rotl", exec_rotl},
 		{NULL, NULL}
 	};
+
 	if (array[0] == NULL)
-	{
 		return;
-	}
 	for (fcount = 0; funcs[fcount].opcode != NULL; fcount++)
 	{
 		if (_strcmp(array[0], funcs[fcount].opcode) == 1)
@@ -47,12 +51,8 @@ void call_functions(stack_t **stack, char **array, unsigned int line_number,
 			break;
 		}
 	}
-	if (fcount == 7)
-	{
-		fprintf(stderr, "L%u: unknown instruction %s\n",
-			line_number, array[0]);
-		exit_instruction(stack, ptr, line);
-	}
+	if (fcount == 13)
+		validate_condition(fcount, array[0], line_number, stack, ptr, line);
 }
 /**
  * _strcmp - compares two strings
